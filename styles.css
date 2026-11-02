@@ -1,0 +1,270 @@
+/* ============================================================
+   AETHERIA SKYWAYS - LUXURY STYLING & ANIMATIONS
+   ============================================================ */
+
+/* Root & Base */
+:root {
+  --gold-glow: rgba(212, 175, 55, 0.35);
+  --glass-bg: rgba(15, 23, 42, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.12);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #516394;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5a6069;
+  border-radius: 9999px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Luxury Glass Panel Effect */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Starfield / Subtle Night Sky Overlay */
+.stars-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #ffffff 100%, transparent),
+    radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.7) 100%, transparent),
+    radial-gradient(1.5px 1.5px at 90px 40px, #d4af37 100%, transparent),
+    radial-gradient(1px 1px at 160px 120px, #ffffff 100%, transparent),
+    radial-gradient(1.5px 1.5px at 230px 190px, rgba(212, 175, 55, 0.8) 100%, transparent),
+    radial-gradient(1px 1px at 300px 80px, #ffffff 100%, transparent);
+  background-repeat: repeat;
+  background-size: 350px 350px;
+  opacity: 0.18;
+}
+
+/* Step Indicators */
+.step-indicator {
+  transition: all 0.3s ease;
+}
+
+.step-indicator.active {
+  color: #e5c07b;
+}
+
+/* Interactive Seat Map Styling */
+.seat-btn {
+  width: 32px;
+  height: 34px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-family: 'Space Grotesk', monospace;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  user-select: none;
+}
+
+.seat-btn.available {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+.seat-btn.available:hover {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: #d4af37;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+}
+
+.seat-btn.selected {
+  background: linear-gradient(135deg, #d4af37, #f59e0b) !important;
+  color: #060911 !important;
+  border-color: #fef08a !important;
+  font-weight: 700 !important;
+  transform: scale(1.08);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.8);
+}
+
+.seat-btn.occupied {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: rgba(148, 163, 184, 0.25);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Airplane Fuselage Styling */
+.plane-fuselage {
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Flight Route Progress Line */
+.flight-route-line {
+  position: relative;
+}
+
+.flight-route-line::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, #d4af37 0, #d4af37 6px, transparent 6px, transparent 12px);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* Barcode Strip Graphic Simulation */
+.barcode-strip {
+  background-image: repeating-linear-gradient(90deg,
+      #ffffff,
+      #ffffff 2px,
+      transparent 2px,
+      transparent 4px,
+      #ffffff 4px,
+      #ffffff 7px,
+      transparent 7px,
+      transparent 8px,
+      #ffffff 8px,
+      #ffffff 12px,
+      transparent 12px,
+      transparent 15px);
+}
+
+/* Suggestions Dropdown Items */
+.airport-option {
+  transition: all 0.2s ease;
+}
+
+.airport-option:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-left: 3px solid #d4af37;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Cabin Card Selected Glow */
+.cabin-card.selected-tier {
+  border-color: #d4af37 !important;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.35) !important;
+}
+
+/* ============================================================
+   PRINT STYLES FOR BOARDING PASS
+   ============================================================ */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Hide navigation, background glows, footer, and buttons */
+  header,
+  footer,
+  .no-print,
+  .stars-overlay,
+  #search-section,
+  #results-section,
+  #class-selection-section,
+  #passenger-section,
+  #filter-modal {
+    display: none !important;
+  }
+
+  #confirmation-section {
+    display: block !important;
+    margin: 0 !important;
+    padding: 20px !important;
+  }
+
+  .ticket-wrapper {
+    box-shadow: none !important;
+    border: 2px solid #000000 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    page-break-inside: avoid;
+  }
+
+  .ticket-wrapper * {
+    color: #000000 !important;
+    border-color: #cccccc !important;
+  }
+
+  .ticket-wrapper .text-white,
+  .ticket-wrapper .text-gold-400,
+  .ticket-wrapper .text-gold-300 {
+    color: #000000 !important;
+  }
+
+  .ticket-wrapper .bg-gradient-to-r {
+    background: #eeeeee !important;
+  }
+
+  .barcode-strip {
+    background-image: repeating-linear-gradient(90deg,
+        #000000,
+        #000000 2px,
+        transparent 2px,
+        transparent 4px,
+        #000000 4px,
+        #000000 7px,
+        transparent 7px,
+        transparent 8px,
+        #000000 8px,
+        #000000 12px,
+        transparent 12px,
+        transparent 15px) !important;
+  }
+}
